@@ -1,0 +1,24 @@
+def is_alphanumeric(c):
+    return c.isalpha() or c.isdigit()
+
+
+def reverse_string_in_place(s):
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        if not is_alphanumeric(s[left]):
+            left += 1
+        elif not is_alphanumeric(s[right]):
+            right -= 1
+        else:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+
+
+if __name__ == "__main__":
+    s = list(input())
+
+    reverse_string_in_place(s)
+
+    print(''.join(s))
